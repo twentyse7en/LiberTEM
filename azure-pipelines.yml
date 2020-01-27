@@ -11,8 +11,11 @@ steps:
 - bash: which python3.6 || exit 0
 - bash: which python3.7 || exit 0
 - bash: which python3.8 || exit 0
-- bash: sudo apt-get -y install tox
-  displayName: 'install system requirements'
+# - bash: sudo apt-get install -y something
+#   displayName: 'install system requirements'
+- bash: pip install -U tox
+  displayName: 'install requirements'
+
 - bash: tox -r -e py37
   displayName: 'Run tox tests'
 - bash: bash <(curl -s https://codecov.io/bash) -f coverage.xml -f client/coverage/coverage-final.json
