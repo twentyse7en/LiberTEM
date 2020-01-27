@@ -8,7 +8,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- bash: sudo apt-get -y install tox
+- bash: sudo apt-get -y install tox python3.7
   displayName: 'install system requirements'
 - bash: tox -r -e py37
   displayName: 'Run tox tests'
