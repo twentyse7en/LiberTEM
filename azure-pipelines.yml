@@ -8,9 +8,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- bash: which python3.6 || exit 1
-- bash: which python3.7 || exit 1
-- bash: which python3.8 || exit 1
+- bash: which python3.6 || exit 0
+- bash: which python3.7 || exit 0
+- bash: which python3.8 || exit 0
 - bash: sudo apt-get -y install tox
   displayName: 'install system requirements'
 - bash: tox -r -e py37
