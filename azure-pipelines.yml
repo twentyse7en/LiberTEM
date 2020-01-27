@@ -1,0 +1,16 @@
+# Initial Azure pipeline for evaluation regarding running a on-premise agent
+# which has access to non-published data sets
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- bash: sudo apt-get -y install tox
+  displayName: 'install system requirements'
+- bash: tox -r -e py37
+  displayName: 'Run tox tests'
+- bash: bash <(curl -s https://codecov.io/bash) -f coverage.xml -f client/coverage/coverage-final.json
+  displayName: 'Submit coverage to codecov.io'
