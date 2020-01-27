@@ -6,17 +6,17 @@ trigger:
 
 - job:
   pool:
-	vmImage: 'ubuntu-latest'
+    vmImage: 'ubuntu-latest'
   stragegy:
-	matrix:
-	  Python36:
-		python.version: '3.6'
+    matrix:
+      Python36:
+        python.version: '3.6'
         TOXENV: 'py36'
-	  Python37:
-		python.version: '3.7'
+      Python37:
+        python.version: '3.7'
         TOXENV: 'py37'
-	  Python38:
-		python.version: '3.8'
+      Python38:
+        python.version: '3.8'
         TOXENV: 'py38'
   variables:
     TOXENV: '$(TOXENV)'
@@ -26,10 +26,10 @@ trigger:
     inputs:
       versionSpec: '$(python.version)'
   - bash: pip install -U tox
-	displayName: 'install requirements'
+    displayName: 'install requirements'
 
   - bash: tox
-	displayName: 'Run tox tests'
+    displayName: 'Run tox tests'
 
   - bash: bash <(curl -s https://codecov.io/bash) -f coverage.xml -f client/coverage/coverage-final.json
-	displayName: 'Submit coverage to codecov.io'
+    displayName: 'Submit coverage to codecov.io'
