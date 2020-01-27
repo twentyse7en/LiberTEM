@@ -8,7 +8,7 @@ jobs:
 - job:
   pool:
     vmImage: 'ubuntu-latest'
-  stragegy:
+  strategy:
     matrix:
       Python36:
         python.version: '3.6'
