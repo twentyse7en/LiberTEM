@@ -38,28 +38,10 @@ jobs:
 # FIXME: remove duplication
 - job: dataset_tests
   pool: DataAccess
-  strategy:
-    matrix:
-      Python36:
-        python.version: '3.6'
-        TOXENV: 'py36'
-      Python37:
-        python.version: '3.7'
-        TOXENV: 'py37'
-      Python38:
-        python.version: '3.8'
-        TOXENV: 'py38'
   variables:
-    TOXENV: '$(TOXENV)'
+    TOXENV: 'py36'
     LT_TEST_DATA_PATH: '/cachedata/users/clausen/libertem-test-data'
   steps:
-  - task: UsePythonVersion@0
-    displayName: 'Use Python $(python.version)'
-    inputs:
-      versionSpec: '$(python.version)'
-  - bash: pip install -U tox
-    displayName: 'install requirements'
-
   - bash: tox
     displayName: 'Run tox tests'
 
