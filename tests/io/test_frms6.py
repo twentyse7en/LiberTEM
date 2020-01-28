@@ -8,8 +8,12 @@ from libertem.io.dataset.frms6 import FRMS6DataSet
 from libertem.analysis.raw import PickFrameAnalysis
 from libertem.analysis.sum import SumAnalysis
 
-FRMS6_TESTDATA_PATH = os.path.join(os.path.dirname(__file__), '..', '..',
-                                 'data', 'frms6', 'C16_15_24_151203_019.hdr')
+LT_TEST_DATA_PATH = os.environ.get(
+    'LT_TEST_DATA_PATH',
+    os.path.dirname(__file__), '..', '..', 'data'
+)
+
+FRMS6_TESTDATA_PATH = os.path.join(LT_TEST_DATA_PATH, 'frms6', 'C16_15_24_151203_019.hdr')
 HAVE_FRMS6_TESTDATA = os.path.exists(FRMS6_TESTDATA_PATH)
 
 pytestmark = pytest.mark.skipif(not HAVE_FRMS6_TESTDATA, reason="need frms6 testdata")  # NOQA

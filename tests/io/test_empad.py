@@ -14,7 +14,12 @@ from libertem.io.dataset.empad import EMPADDataSet
 from libertem.common import Slice, Shape
 from utils import _mk_random
 
-EMPAD_TESTDATA_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'EMPAD')
+LT_TEST_DATA_PATH = os.environ.get(
+    'LT_TEST_DATA_PATH',
+    os.path.dirname(__file__), '..', '..', 'data'
+)
+
+EMPAD_TESTDATA_PATH = os.path.join(LT_TEST_DATA_PATH, 'EMPAD')
 EMPAD_RAW = os.path.join(EMPAD_TESTDATA_PATH, 'scan_11_x4_y4.raw')
 EMPAD_XML = os.path.join(EMPAD_TESTDATA_PATH, 'acquisition_12_pretty.xml')
 HAVE_EMPAD_TESTDATA = os.path.exists(EMPAD_RAW) and os.path.exists(EMPAD_XML)

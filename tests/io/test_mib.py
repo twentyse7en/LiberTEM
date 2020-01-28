@@ -12,7 +12,12 @@ from libertem.executor.inline import InlineJobExecutor
 from libertem.analysis.raw import PickFrameAnalysis
 from libertem.common import Slice, Shape
 
-MIB_TESTDATA_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'default.mib')
+LT_TEST_DATA_PATH = os.environ.get(
+    'LT_TEST_DATA_PATH',
+    os.path.dirname(__file__), '..', '..', 'data'
+)
+
+MIB_TESTDATA_PATH = os.path.join(LT_TEST_DATA_PATH, 'default.mib')
 HAVE_MIB_TESTDATA = os.path.exists(MIB_TESTDATA_PATH)
 
 pytestmark = pytest.mark.skipif(not HAVE_MIB_TESTDATA, reason="need .mib testdata")  # NOQA

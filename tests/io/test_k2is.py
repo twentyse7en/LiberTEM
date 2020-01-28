@@ -12,8 +12,12 @@ from libertem.analysis.raw import PickFrameAnalysis
 from libertem.common.buffers import BufferWrapper
 from libertem.udf import UDF
 
-K2IS_TESTDATA_PATH = os.path.join(os.path.dirname(__file__), '..', '..',
-                                  'data', 'Capture52', 'Capture52_.gtg')
+LT_TEST_DATA_PATH = os.environ.get(
+    'LT_TEST_DATA_PATH',
+    os.path.dirname(__file__), '..', '..', 'data'
+)
+
+K2IS_TESTDATA_PATH = os.path.join(LT_TEST_DATA_PATH, 'Capture52', 'Capture52_.gtg')
 HAVE_K2IS_TESTDATA = os.path.exists(K2IS_TESTDATA_PATH)
 
 pytestmark = pytest.mark.skipif(not HAVE_K2IS_TESTDATA, reason="need K2IS testdata")  # NOQA

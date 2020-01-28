@@ -7,8 +7,12 @@ import pytest
 
 from libertem.io.dataset.dm import DMDataSet
 
+LT_TEST_DATA_PATH = os.environ.get(
+    'LT_TEST_DATA_PATH',
+    os.path.dirname(__file__), '..', '..', 'data'
+)
 
-DM_TESTDATA_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'dm')
+DM_TESTDATA_PATH = os.path.join(LT_TEST_DATA_PATH, 'dm')
 HAVE_DM_TESTDATA = os.path.exists(DM_TESTDATA_PATH)
 
 pytestmark = pytest.mark.skipif(not HAVE_DM_TESTDATA, reason="need .dm4 testdata")  # NOQA

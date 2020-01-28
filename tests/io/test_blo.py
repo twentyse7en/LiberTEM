@@ -10,7 +10,12 @@ from libertem.analysis.raw import PickFrameAnalysis
 from libertem.executor.inline import InlineJobExecutor
 from libertem.io.dataset.blo import BloDataSet
 
-BLO_TESTDATA_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'default.blo')
+LT_TEST_DATA_PATH = os.environ.get(
+    'LT_TEST_DATA_PATH',
+    os.path.dirname(__file__), '..', '..', 'data'
+)
+
+BLO_TESTDATA_PATH = os.path.join(LT_TEST_DATA_PATH, 'default.blo')
 HAVE_BLO_TESTDATA = os.path.exists(BLO_TESTDATA_PATH)
 
 pytestmark = pytest.mark.skipif(not HAVE_BLO_TESTDATA, reason="need .blo testdata")  # NOQA

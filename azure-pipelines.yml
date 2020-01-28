@@ -34,3 +34,34 @@ jobs:
 
   - bash: bash <(curl -s https://codecov.io/bash) -f coverage.xml -f client/coverage/coverage-final.json
     displayName: 'Submit coverage to codecov.io'
+
+# FIXME: remove duplication
+- job: DataSet tests
+  pool: DataAccess
+  strategy:
+    matrix:
+      Python36:
+        python.version: '3.6'
+        TOXENV: 'py36'
+      Python37:
+        python.version: '3.7'
+        TOXENV: 'py37'
+      Python38:
+        python.version: '3.8'
+        TOXENV: 'py38'
+  variables:
+    TOXENV: '$(TOXENV)'
+    LT_TEST_DATA_PATH: '/cachedata/users/clausen/libertem-test-data'
+  steps:
+  - task: UsePythonVersion@0
+    displayName: 'Use Python $(python.version)'
+    inputs:
+      versionSpec: '$(python.version)'
+  - bash: pip install -U tox
+    displayName: 'install requirements'
+
+  - bash: tox
+    displayName: 'Run tox tests'
+
+  - bash: bash <(curl -s https://codecov.io/bash) -f coverage.xml -f client/coverage/coverage-final.json
+    displayName: 'Submit coverage to codecov.io'
