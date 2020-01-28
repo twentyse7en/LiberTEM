@@ -10,7 +10,7 @@ from libertem.analysis.sum import SumAnalysis
 
 LT_TEST_DATA_PATH = os.environ.get(
     'LT_TEST_DATA_PATH',
-    os.path.dirname(__file__), '..', '..', 'data'
+    os.path.join(os.path.dirname(__file__), '..', '..', 'data')
 )
 
 FRMS6_TESTDATA_PATH = os.path.join(LT_TEST_DATA_PATH, 'frms6', 'C16_15_24_151203_019.hdr')

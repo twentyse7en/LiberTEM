@@ -14,7 +14,7 @@ from libertem.udf import UDF
 
 LT_TEST_DATA_PATH = os.environ.get(
     'LT_TEST_DATA_PATH',
-    os.path.dirname(__file__), '..', '..', 'data'
+    os.path.join(os.path.dirname(__file__), '..', '..', 'data')
 )
 
 K2IS_TESTDATA_PATH = os.path.join(LT_TEST_DATA_PATH, 'Capture52', 'Capture52_.gtg')

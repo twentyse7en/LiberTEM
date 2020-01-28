@@ -9,7 +9,7 @@ from libertem.io.dataset.dm import DMDataSet
 
 LT_TEST_DATA_PATH = os.environ.get(
     'LT_TEST_DATA_PATH',
-    os.path.dirname(__file__), '..', '..', 'data'
+    os.path.join(os.path.dirname(__file__), '..', '..', 'data')
 )
 
 DM_TESTDATA_PATH = os.path.join(LT_TEST_DATA_PATH, 'dm')
