@@ -42,7 +42,7 @@ jobs:
     TOXENV: 'py36'
     LT_TEST_DATA_PATH: '/cachedata/users/clausen/libertem-test-data'
   steps:
-  - bash: python3 -m venv
+  - bash: python3 -m venv venv
     displayName: 'create venv'
 
   - bash: ./venv/bin/pip install tox
