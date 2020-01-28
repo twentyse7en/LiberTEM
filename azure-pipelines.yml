@@ -36,7 +36,7 @@ jobs:
     displayName: 'Submit coverage to codecov.io'
 
 # FIXME: remove duplication
-- job: DataSet tests
+- job: dataset_tests
   pool: DataAccess
   strategy:
     matrix:
