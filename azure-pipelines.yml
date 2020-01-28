@@ -42,7 +42,13 @@ jobs:
     TOXENV: 'py36'
     LT_TEST_DATA_PATH: '/cachedata/users/clausen/libertem-test-data'
   steps:
-  - bash: tox
+  - bash: python3 -m venv
+    displayName: 'create venv'
+
+  - bash: ./venv/bin/pip install tox
+    displayName: 'install tox'
+
+  - bash: ./venv/bin/tox
     displayName: 'Run tox tests'
 
   - bash: bash <(curl -s https://codecov.io/bash) -f coverage.xml -f client/coverage/coverage-final.json
