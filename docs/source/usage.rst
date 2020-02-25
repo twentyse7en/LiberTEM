@@ -38,7 +38,7 @@ There are a few command line options available::
       --help          Show this message and exit.
 
 .. versionadded:: 0.4.0
-    :code:`--browser` / :code:`--no-browser` option is added, open browser by default. 
+    :code:`--browser` / :code:`--no-browser` option is added, open browser by default.
 
 To access LiberTEM remotely, you can use :ref:`use SSH forwarding <ssh forwarding>`.
 
@@ -141,6 +141,13 @@ in different ways. You can select the channel in the "Image" drop-down menu
 below the right window.
 
 ..  figure:: ./images/use/image.png
+
+Citation
+~~~~~~~~
+
+Ophus, Colin, & Savitzky, Benjamin. (2019). Simulated calibration dataset for
+4D scanning transmission electron microscopy [Data set].
+Zenodo. http://doi.org/10.5281/zenodo.3592520
 
 Application-specific documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
