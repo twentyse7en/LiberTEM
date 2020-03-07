@@ -124,6 +124,11 @@ in scan coordinates on the right.
 
 ..  figure:: ./images/use/apply.png
 
+Instead of average, you can select "Standard Deviation". This calculates
+standard deviation of all detector frame.
+
+.. figure:: ./images/use/std_dev.png
+
 If you are interested in individual frames rather than the average, you can
 switch to "Pick" mode in the "Mode" drop-down menu directly below the detector
 window.
@@ -136,6 +141,13 @@ picked coordinates are displayed along with the virtual detector parameters
 below the frame window on the left.
 
 ..  figure:: ./images/use/pick_frame.png
+
+If you are interested in limited region, ROI provide option to select rectangle,
+disk. For example if you select "Rect", the average/standard deviation is calculated
+over all images that lie inside selected rectangle. You can adjust the disk/rectangle
+by dragging the handles in the GUI.
+
+.. figure:: ./images/use/rect.png
 
 Some analyses, such as the Center of Mass (COM) analysis, can render the result
 in different ways. You can select the channel in the "Image" drop-down menu
