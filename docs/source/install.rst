@@ -58,7 +58,10 @@ To create a new virtualenv for LiberTEM, you can use the following command:
 
 .. code-block:: shell
 
-    $ virtualenv -p python3.7 ~/libertem-venv/
+    $ virtualenv -p python3 ~/libertem-venv/
+
+If multiple python versions are installed, replace :code:`python3` with 
+:code:`python3.6` or above version.
 
 Replace :code:`~/libertem-venv/` with any path where you would like to create
 the venv. You can then activate the virtualenv with
@@ -196,7 +199,7 @@ example from PyPi:
 
 .. code-block:: shell
 
-    (libertem) $ pip install libertem[torch]
+    (libertem) $ pip install "libertem[torch]"
 
 Or from git checkout:
 
